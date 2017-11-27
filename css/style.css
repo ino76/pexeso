@@ -1,28 +1,57 @@
 /* Cascading Style Sheets */
-
-html {
-    font-size: 10px;
-    background: #000 url(bg.jpg) bottom center;
-    background-size: cover;
-  }
+  
 body,html {
     margin: 0;
     padding: 0;
-    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
   }
+
 
 #game {
     display: flex;
-    flex: 1;
-    height: 100vh;
-    align-items: center;
     justify-content: center;
-    color: white;
-  }
+    align-content: center;
+    flex-wrap: wrap;
+    height: 100vh;
+    width: 60vw;
+}
+
+
+.container { 
+  width: 150px;
+  height: 150px;
+  position: relative;
+  perspective: 800px;
+  margin: 0.5em;
+}
+
 
 .card {
-    width: 150px;
-    height: 150px;
-    background-color: #1a0d66;
-    margin: 0.2vw; 
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transform-style: preserve-3d;
+  transition: transform 0.7s;
 }
+
+.card figure {
+    margin: 0;
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+  }
+
+  .card .front {
+    background: rgb(52, 9, 121);
+  }
+  .card .back {
+    background: rgb(27, 218, 176);
+    transform: rotateY( 180deg );
+  }
+
+  .card.flipped {
+    transform: rotateY( 180deg );
+  }
