@@ -51,14 +51,14 @@ body,html {
  
 
   .card .front {
-    color: rgb(54, 21, 114);
-    background: rgb(43, 6, 102);
+    background: #371daa  url('../images/pexeso.png') no-repeat right top;
   }
   .card .back {
     color: rgb(20, 119, 86);
     background: rgb(27, 218, 176);
     transform: rotateY( 180deg );
   }
+
 
   .card.flipped {
     transform: rotateY( 180deg );
