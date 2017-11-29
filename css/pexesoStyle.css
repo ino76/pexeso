@@ -63,8 +63,13 @@ body {
   }
   .card .back {
     color: rgb(20, 119, 86);
-    background: #bde4d2  url('../images/logos/bash.png') no-repeat right top;
+    background: #f0efea;
     transform: rotateY( 180deg );
+    display: flex;
+  }
+
+  .back img {
+    align-self: flex-end;
   }
 
 
