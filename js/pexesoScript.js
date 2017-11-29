@@ -37,7 +37,7 @@ function start(s){
         game.innerHTML += `<section class="container">
         <div class="card">
                 <figure class="front"><span></span></figure>
-                <figure class="back"><img src="images/logos/${x}.png" data-lang="${x}"></figure>
+                <figure class="back" style="background: #f0efea url('images/logos/${x}.png') no-repeat center bottom;" data-lang="${x}"></figure>
         </div>
     </section>`
     })
