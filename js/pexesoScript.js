@@ -3,7 +3,7 @@
 // date: Nov 23, 2017
 
 
-let listOfLangs = [   "bash",
+let listOfLangs = [     "bash",
                         "c",
                         "cpp",
                         "crystal",
@@ -24,20 +24,22 @@ let listOfLangs = [   "bash",
 listOfLangs.push.apply(listOfLangs, listOfLangs)
 
 const game = document.getElementById('game')
+const coinSound = document.getElementById('coin')
+const flipSound = document.getElementById('flip')
 let numberOfFlipped = 0
 let listOfFlipped = []
 let last
 let inAnimation = false
-let lastLang
+let lastLang = null
 
 
 function start(s){
     shuffle(listOfLangs)
     listOfLangs.forEach(x => {
         game.innerHTML += `<section class="container">
-        <div class="card">
+        <div class="card" data-lang="${x}">
                 <figure class="front"><span></span></figure>
-                <figure class="back" style="background: #f0efea url('images/logos/${x}.png') no-repeat center bottom;" data-lang="${x}"></figure>
+                <figure class="back" style="background: #f0efea url('images/logos/${x}.png') no-repeat center bottom;"></figure>
         </div>
     </section>`
     })
@@ -68,7 +70,12 @@ function shuffle(array) {
 
 
 function flipManager(c) {
-    if( numberOfFlipped < 2 && this != last) {
+    if(numberOfFlipped < 1) {
+        lastLang = c.currentTarget.dataset.lang
+        console.log(lastLang)
+    }
+
+    if(numberOfFlipped < 2 && this != last) {
         if(inAnimation) {
             return
         }
@@ -83,21 +90,31 @@ function flipManager(c) {
     }
 
     if(numberOfFlipped == 2) {
-        setTimeout(function(){
-            listOfFlipped.forEach(c => flip(c))
+        console.log(c.currentTarget.dataset.lang)
+        if(lastLang == c.currentTarget.dataset.lang){ 
+            coinSound.play()
             last = null
             numberOfFlipped = 0
             listOfFlipped = []
-            inAnimation = true
+            lastLang = null
+        } else {
             setTimeout(function(){
-                inAnimation = false
-            }, 800)
-        }, 1500)
+                listOfFlipped.forEach(c => flip(c))
+                inAnimation = true
+                last = null
+                numberOfFlipped = 0
+                listOfFlipped = []
+                lastLang = null
+                setTimeout(function(){
+                    inAnimation = false
+                }, 800)
+            }, 1500)
+        }
     }
-    console.log(numberOfFlipped)
 }
 
 
 function flip(c) {
     c.classList.toggle('flipped')
+    flipSound.play()
 }
