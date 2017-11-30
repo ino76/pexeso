@@ -70,6 +70,9 @@ function shuffle(array) {
 
 
 function flipManager(c) {
+    if(c.currentTarget.classList.contains("flipped")) {
+        return
+    }
     if(numberOfFlipped < 1) {
         lastLang = c.currentTarget.dataset.lang
         console.log(lastLang)
