@@ -25,11 +25,11 @@ body {
 
 
 .container { 
-  width: 150px;
-  height: 150px;
+  width: 7vw;
+  height: 7vw;
   position: relative;
   perspective: 800px;
-  margin: 0.5em;
+  margin: 0.4em;
 }
 
 
@@ -58,7 +58,8 @@ body {
  
 
   .card .front {
-    background: #371daa  url('../images/pexeso.png') no-repeat right top;
+    background: #371daa  url('../images/pexeso.png') no-repeat center center;
+    background-size: cover;
   }
   .card .back {
     color: rgb(20, 119, 86);

@@ -52,7 +52,7 @@ function start(s){
         game.innerHTML += `<section class="container">
         <div class="card" data-lang="${x}">
                 <figure class="front"><span></span></figure>
-                <figure class="back" style="background: #f0efea url('images/logos/${x}.png') no-repeat center center;"></figure>
+                <figure class="back" style="background: #f0efea url('images/logos/${x}.png') no-repeat center center; background-size: cover;"></figure>
         </div>
     </section>`
     })
