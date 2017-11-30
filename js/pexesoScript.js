@@ -17,7 +17,19 @@ let listOfLangs = [     "bash",
                         "kotlin",
                         "python",
                         "ruby",
-                        "swift"
+                        "swift",
+                        "rust",
+                        "matlab",
+                        "fsharp",
+                        "lua",
+                        "scala",
+                        "haxe",
+                        "powershell",
+                        "ocaml",
+                        "perl",
+                        "dart",
+                        "coffeescript",
+                        "wolframmathematica"
                     ]
 
 
@@ -40,7 +52,7 @@ function start(s){
         game.innerHTML += `<section class="container">
         <div class="card" data-lang="${x}">
                 <figure class="front"><span></span></figure>
-                <figure class="back" style="background: #f0efea url('images/logos/${x}.png') no-repeat center bottom;"></figure>
+                <figure class="back" style="background: #f0efea url('images/logos/${x}.png') no-repeat center center;"></figure>
         </div>
     </section>`
     })
@@ -96,6 +108,7 @@ function flipManager(c) {
     if(numberOfFlipped == 2) {
         console.log(c.currentTarget.dataset.lang)
         if(lastLang == c.currentTarget.dataset.lang){ 
+            coinSound.currentTime = 0
             coinSound.play()
             last = null
             numberOfFlipped = 0
@@ -120,5 +133,6 @@ function flipManager(c) {
 
 function flip(c) {
     c.classList.toggle('flipped')
+    flipSound.currentTime = 0
     flipSound.play()
 }
