@@ -16,7 +16,8 @@ let listOfLangs = [     "bash",
                         "javascript",
                         "kotlin",
                         "python",
-                        "ruby"
+                        "ruby",
+                        "swift"
                     ]
 
 
